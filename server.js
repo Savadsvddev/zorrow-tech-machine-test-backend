@@ -5,16 +5,16 @@ const attendanceRoutes = require("./routes/attendance");
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+// CORS configuration
+const corsOptions = {
+  origin: ['https://machine-test-46677.web.app', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
 
-app.use(
-  cors({
-    origin: "https://machine-test-46677.web.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  })
-);
+app.use(cors(corsOptions));
+app.use(express.json());
 
 connectDB();
 
