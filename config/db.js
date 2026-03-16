@@ -4,15 +4,15 @@ require("dotenv").config();
 const connectDB = async () => {
   try {
     // Check if MONGO_URI is defined
-    if (!process.env.MONGO_URI) {
+    if (!"mongodb+srv://savadsvd088:JQKnRJkQglQhPVxC@cluster0.2ts20gv.mongodb.net/?appName=Cluster0") {
       console.error("MONGO_URI is not defined in environment variables");
       process.exit(1);
     }
 
     console.log("Attempting to connect to MongoDB...");
-    console.log("MONGO_URI:", process.env.MONGO_URI ? "URI is set" : "URI is missing");
+    console.log("MONGO_URI:", "mongodb+srv://savadsvd088:JQKnRJkQglQhPVxC@cluster0.2ts20gv.mongodb.net/?appName=Cluster0" ? "URI is set" : "URI is missing");
 
-    const conn = await mongoose.connect(process.env.MONGO_URI);
+    const conn = await mongoose.connect("mongodb+srv://savadsvd088:JQKnRJkQglQhPVxC@cluster0.2ts20gv.mongodb.net/?appName=Cluster0");
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
