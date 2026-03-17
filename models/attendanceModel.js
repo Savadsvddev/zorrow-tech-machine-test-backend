@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 const attendanceSchema = new mongoose.Schema({
     user_id: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     latitude: {
@@ -20,7 +21,11 @@ const attendanceSchema = new mongoose.Schema({
     timestamp: {
         type: Date,
         default: Date.now
+    },
+    Type: {
+        type: String,
+        default: Date.now
     }
 
 })
-module.exports =mongoose.model('attendance',attendanceSchema)
+module.exports = mongoose.model('attendance', attendanceSchema)
