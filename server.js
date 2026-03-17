@@ -5,11 +5,14 @@ const attendanceRoutes = require("./routes/attendance");
 const cors = require("cors");
 const app = express();
 
+// CORS configuration for all origins
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
-app.use(cors());
 app.use(express.json());
-
-
 
 connectDB();
 
